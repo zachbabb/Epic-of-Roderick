@@ -1,0 +1,20 @@
+/* 
+  DemoScript.strings
+  TEORWorldMapTest
+
+  Created by Zach Babb on 12/30/13.
+
+*/
+/* Here is the demo script. The following key characters are used:
+   "&"+<runename> Will add a runestone to inventory
+   "$" will invoke moveToNextStageInScene
+   "%" will make a choicebox delimited by "%"
+   "(" will make a center textBox used for narration
+   ";" ends cutscene
+*/
+"CutScene1Line1" = "Baal: So this is the old dwarven hotel.";
+"CutScene1Line2" = "Baal: Looks like it's been overrun by monsters.";
+"CutScene1Line3" = "Mysterious Woman: This must be where it's coming from...";
+"CutScene1Line4" = "$";
+"CutScene1Line5" = "Baal: Well I have to go after her.";
+"CutScene1Line6" = ";";

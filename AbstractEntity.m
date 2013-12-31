@@ -209,22 +209,22 @@
             for (AbstractEntity *entity in sharedGameController.currentScene.activeEntities) {
                 if ([entity isKindOfClass:[AbstractEntity class]] && entity.active) {
                     if ((leftTile.x == entity.currentTile.x && leftTile.y == entity.currentTile.y) || [sharedGameController.currentScene isBlocked:leftTile.x y:leftTile.y]) {
-                        if (currentTile.x * 40 + 19 > currentLocation.x) {
+                        if (currentTile.x * 64 + 19 > currentLocation.x) {
                             canMoveLeft = NO;
                         }
                     }
                     if ((rightTile.x == entity.currentTile.x && rightTile.y == entity.currentTile.y) || [sharedGameController.currentScene isBlocked:rightTile.x y:rightTile.y]) {
-                        if (currentTile.x * 40 + 21 < currentLocation.x) {
+                        if (currentTile.x * 64 + 21 < currentLocation.x) {
                             canMoveRight = NO;
                         }                  
                     }
                     if ((upTile.x == entity.currentTile.x && upTile.y == entity.currentTile.y) || [sharedGameController.currentScene isBlocked:upTile.x y:upTile.y]) {
-                        if (currentTile.y * 40 + 30 < currentLocation.y) {
+                        if (currentTile.y * 64 + 30 < currentLocation.y) {
                             canMoveUp = NO;
                         }    
                     }
                     if ((downTile.x == entity.currentTile.x && downTile.y == entity.currentTile.y) || [sharedGameController.currentScene isBlocked:downTile.x y:downTile.y]) {
-                        if (currentTile.y * 40 + 15 > currentLocation.y) {
+                        if (currentTile.y * 64 + 15 > currentLocation.y) {
                             canMoveDown = NO;
                         }
                     }
@@ -337,19 +337,19 @@
 
 - (void)moveToTile:(CGPoint)aTile duration:(float)aDuration {
     
-    [self moveToPoint:CGPointMake(aTile.x * 40 + 20, aTile.y * 40 + 20) duration:aDuration];
+    [self moveToPoint:CGPointMake(aTile.x * 64 + 20, aTile.y * 64 + 20) duration:aDuration];
 }
 
 - (void)teleportToTile:(CGPoint)aTile {
     
     [self stopMoving];
     currentTile = aTile;
-    currentLocation = CGPointMake(currentTile.x * 40 + 20, currentTile.y * 40 + 20);
+    currentLocation = CGPointMake(currentTile.x * 64 + 20, currentTile.y * 64 + 20);
 }
 
 - (void)moveWithMapToPoint:(CGPoint)aPoint duration:(float)aDuration {
 	
-	MoveMap *moveMap = [[MoveMap alloc] initMoveFromMapXY:CGPointMake((int)(currentLocation.x / 40), (int)(currentLocation.y / 40)) to:CGPointMake((int)(aPoint.x / 40), (int)(aPoint.y / 40)) withDuration:aDuration];
+	MoveMap *moveMap = [[MoveMap alloc] initMoveFromMapXY:CGPointMake((int)(currentLocation.x / 64), (int)(currentLocation.y / 64)) to:CGPointMake((int)(aPoint.x / 64), (int)(aPoint.y / 64)) withDuration:aDuration];
 	[[sharedGameController currentScene] addObjectToActiveObjects:moveMap];
 	[moveMap release];
 	[self moveToPoint:aPoint duration:aDuration];

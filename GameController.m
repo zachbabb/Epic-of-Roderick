@@ -23,6 +23,7 @@
 #import "ChapterOneDemoTestV2.h"
 #import "Alfheim.h"
 #import "Arena.h"
+#import "DemoCave.h"
 #import "Global.h"
 #import "AbstractEntity.h"
 #import "Character.h"
@@ -144,8 +145,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GameController);
 	
 	gameScenes = [[NSMutableDictionary alloc] initWithCapacity:5];
 	//AbstractScene *scene = [[ChapterOneDemoTestV2 alloc] init];
-    AbstractScene *scene = [[Arena alloc] init];
-	[gameScenes setValue:scene forKey:@"ChapterOne"];
+    //AbstractScene *scene = [[Arena alloc] init];
+	AbstractScene *scene = [[DemoCave alloc] init];
+    [gameScenes setValue:scene forKey:@"ChapterOne"];
 	[scene release];
 	
 	currentScene = [gameScenes objectForKey:@"ChapterOne"];

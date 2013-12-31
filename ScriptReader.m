@@ -22,7 +22,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ScriptReader);
 
 - (id)init {
     
-    self = [self initWithScript:@"EnglishScript"];
+    //self = [self initWithScript:@"EnglishScript"];
+    self = [self initWithScript:@"DemoScript"];
     return self;
 }
 
@@ -58,18 +59,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ScriptReader);
      NSString *line = [NSString stringWithFormat:@"CutScene%dLine%d", cutScene, currentLine];
     NSString *aDialog = [NSLocalizedStringFromTable(line, scriptName, @"none") retain];
     if ([aDialog characterAtIndex:0] == [@"&" characterAtIndex:0]) {
-        [[GameController sharedGameController].currentScene removeTextbox];
-        NSString *runeName = [aDialog substringFromIndex:1];
-        [Textbox centerTextboxWithText:[[NSString stringWithFormat:@"You have received a %@ runestone!", runeName] retain]];
-        NSLog(@"%@", runeName);
-        [aDialog release];
-        [sharedInputManager setState:kCutScene_ScriptReader];
-        currentLine++;
-        nextLine++;
-        NSLog(@"Current %d, Next %d", currentLine, nextLine);
-        return;
-    }
-    if ([aDialog characterAtIndex:0] == [@"!" characterAtIndex:0]) {
         [[GameController sharedGameController].currentScene removeTextbox];
         NSString *runeName = [aDialog substringFromIndex:1];
         [Textbox centerTextboxWithText:[[NSString stringWithFormat:@"You have received a %@ runestone!", runeName] retain]];
