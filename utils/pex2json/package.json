@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "gunzip-file": "^0.1.1",
     "xml2json": "^0.12.0"
   }
 }
